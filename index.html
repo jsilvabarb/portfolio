@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julia Barbosa — Sobre Mim</title>
+  <!-- Fonte Inter via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- theme.js no <head> para aplicar tema antes do paint e evitar flash -->
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <!-- Navegação principal — igual em todas as páginas -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Julia Barbosa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <!-- classe "active" marca a página atual -->
+      <li><a href="index.html" class="nav-link active">Sobre Mim</a></li>
+      <li><a href="formacao.html" class="nav-link">Formação</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfólio</a></li>
+      <li><a href="contato.html" class="nav-link">Contato</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">☀️</button>
+  </nav>
+
+  <!-- Seção hero com avatar placeholder e chamada para ação -->
+  <header class="hero">
+    <div class="hero-avatar">👩🏽‍💻</div>
+    <h1>Olá, sou <span class="hero-title-accent">Julia Barbosa</span></h1>
+    <p class="hero-subtitle">Estudante de Ciência da Computação</p>
+    <a href="portfolio.html" class="btn">Ver Portfólio</a>
+    <a href="contato.html" class="btn btn-outline">Contato</a>
+  </header>
+ 
+  <!-- Cards de apresentação pessoal -->
+  <main class="main">
+    <h2 class="section-title">Sobre Mim</h2>
+    <div class="cards-grid">
+
+      <div class="card">
+        <h3>Sobre Mim</h3>
+        <p>Sou Desenvolvedora de Software com 3 anos + de experiência em desenvolvimento backend utilizando Node.js, TypeScript/JavaScript. Atualmente, estou me preparando para a certificação AWS Developer Associate e tenho atuado na construção de soluções serverless orientadas a eventos na AWS.<br>Sou formada como Técnica em Desenvolvimento de Sistemas pelo SENAI Santos Dumont e atualmente curso Ciência da Computação na Universidade Uninter.
+</p>
+      </div>
+
+      <div class="card">
+        <h3>Hobbies</h3>
+        <p>No meu tempo livre gosto de praticar canto, atualmente participo do Coro Margareth Picler na minha universidade, amo boas leituras, andar de bicicleta, passear no parque e fazer musculação. Além de amar decoração de interiores</p>
+      </div>
+
+      <div class="card">
+        <h3>Interesses</h3>
+        <p>Gosto de solucionar problemas e, principalmente, investigar incidentes e comportamentos de aplicações por meio de ferramentas de observabilidade como Datadog e Grafana. Além disso, venho estudando SDD (Spec-Driven Development) com foco em aumentar produtividade, qualidade e clareza no desenvolvimento de software..</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Julia Barbosa</p>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
