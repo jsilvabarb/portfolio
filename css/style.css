@@ -1,0 +1,383 @@
+/* ── Variáveis de tema (claro/escuro) ───────────────────────────────────── */
+:root {
+  --bg: #0f0f1a;
+  --surface: #1a1a2e;
+  --accent: #a78bfa;
+  --text: #e0e0ff;
+  --text-muted: #888888;
+  --border: #2d2d4e;
+  --danger: #f87171;
+  --nav-height: 64px;
+  --radius: 8px;
+  --transition: 0.25s ease;
+}
+
+/* Sobrescreve variáveis quando tema claro está ativo */
+[data-theme="light"] {
+  --bg: #f4f4f8;
+  --surface: #ffffff;
+  --accent: #7c3aed;
+  --text: #1a1a2e;
+  --text-muted: #555555;
+  --border: #dddddd;
+}
+
+/* ── Reset básico ───────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color var(--transition), color var(--transition);
+  padding-top: var(--nav-height); /* espaço para nav fixa */
+}
+
+a { color: var(--accent); text-decoration: none; }
+ul { list-style: none; }
+
+/* ── Navegação fixa ─────────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 1rem;
+  z-index: 100;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-right: auto; /* empurra links para a direita */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+/* Link da página atual destacado em roxo */
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+}
+
+/* Botão hambúrguer — oculto no desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  order: 3;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* Botão de alternância de tema */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+
+/* ── Seção Hero ─────────────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--surface) 0%, #2d1b69 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Hero mais suave no tema claro */
+[data-theme="light"] .hero {
+  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+}
+
+/* Avatar circular com gradiente como placeholder de foto */
+.hero-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #7c3aed);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-title-accent { color: var(--accent); }
+
+/* ── Botões ─────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.7rem 1.8rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity var(--transition);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn:hover { opacity: 0.85; color: #fff; }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  margin-left: 0.75rem;
+}
+
+.btn-outline:hover { background: var(--accent); color: #fff; }
+
+/* ── Área de conteúdo principal ─────────────────────────────────────────── */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+/* ── Cards genéricos ────────────────────────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ── Cards de portfólio ─────────────────────────────────────────────────── */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.portfolio-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Placeholder visual de imagem do projeto */
+.portfolio-card-image {
+  height: 140px;
+  background: linear-gradient(135deg, var(--border), rgba(167,139,250,0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.portfolio-card-body { padding: 1.25rem; }
+
+.portfolio-card-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-card-body p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* ── Formulário de contato ──────────────────────────────────────────────── */
+.form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group { margin-bottom: 1.25rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color var(--transition);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus { border-color: var(--accent); }
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+/* Mensagem de erro inline por campo */
+.field-error {
+  display: none;
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.form-group.error input,
+.form-group.error textarea { border-color: var(--danger); }
+
+.form-group.error .field-error { display: block; }
+
+/* ── Modal de confirmação ───────────────────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+}
+
+.modal-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.modal h3 { margin-bottom: 0.5rem; }
+.modal p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+/* ── Rodapé ─────────────────────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+/* ── Responsivo (mobile < 768px) ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Links de nav viram menu vertical dropdown */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+
+  .nav-links.open { display: flex; }
+
+  /* Ícone hambúrguer aparece no mobile */
+  .nav-toggle { display: flex; }
+
+  .hero h1 { font-size: 1.8rem; }
+
+  .main { padding: 2rem 1rem; }
+}
