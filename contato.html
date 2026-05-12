@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julia Barbosa — Contato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Julia Barbosa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Sobre Mim</a></li>
+      <li><a href="formacao.html" class="nav-link">Formação</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfólio</a></li>
+      <li><a href="contato.html" class="nav-link active">Contato</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">☀️</button>
+  </nav>
+
+  <header class="hero">
+    <h1>Contato</h1>
+    <p class="hero-subtitle">Entre em contato comigo</p>
+  </header>
+
+  <main class="main">
+    <h2 class="section-title">Envie uma Mensagem</h2>
+
+    <!-- Formulário de contato com validação via contato.js -->
+    <div class="form-wrapper">
+      <form id="contactForm" novalidate>
+
+        <div class="form-group" id="group-nome">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group" id="group-email">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com">
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group" id="group-mensagem">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..."></textarea>
+          <span class="field-error"></span>
+        </div>
+
+        <button type="submit" class="btn">Enviar Mensagem</button>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Modal exibido após envio bem-sucedido (simulado) -->
+  <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-icon">✅</div>
+      <h3>Mensagem enviada com sucesso!</h3>
+      <p>Obrigada pelo contato. Responderei em breve.</p>
+      <button class="btn" id="modalClose">Fechar</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Julia Barbosa</p>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <!-- contato.js carregado apenas nesta página -->
+  <script src="js/contato.js"></script>
+</body>
+</html>
